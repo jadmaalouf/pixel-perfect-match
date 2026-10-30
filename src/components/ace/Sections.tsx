@@ -24,13 +24,13 @@ const pill =
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-3 text-cream mix-blend-difference">
+    <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-3 text-cream">
       <Link to="/" aria-label="ACE home"><Logo className="text-3xl" /></Link>
       <button aria-label="Menu" onClick={() => setOpen(!open)} className="flex flex-col gap-1.5 p-2">
         <span className="h-0.5 w-6 bg-cream" /><span className="h-0.5 w-6 bg-cream" /><span className="h-0.5 w-6 bg-cream" />
       </button>
       {open && (
-        <nav className="absolute right-4 top-14 flex flex-col gap-3 rounded-xl bg-cream p-5 text-sm font-bold uppercase text-obsidian mix-blend-normal" onClick={() => setOpen(false)}>
+        <nav className="absolute right-4 top-14 flex flex-col gap-3 rounded-xl bg-cream p-5 text-sm font-bold uppercase text-obsidian" onClick={() => setOpen(false)}>
           <a href="#lineup">Lineup</a>
           <a href="#inside">What's inside</a>
           <Link to="/retailers">Get ACE in your store</Link>
