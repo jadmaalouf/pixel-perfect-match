@@ -156,9 +156,9 @@ export function Inside() {
   return (
     <section id="inside" className="bg-teal px-5 py-20 text-cream">
       <Reveal>
-        <h2 className="font-serif text-5xl italic md:text-7xl">What's inside?</h2>
+        <h2 className="font-serif text-5xl italic md:text-7xl">What's Inside?</h2>
         <p className="mt-4 max-w-md text-sm opacity-90">
-          Discover the character behind ACE. Explore the flavours and ingredients that make our sauces distinctive.
+          Discover what makes ACE distinctive. From its bold character to its memorable finish, every detail is part of the experience.
         </p>
       </Reveal>
       <ul className="mt-10 border-t border-cream/30">
@@ -183,6 +183,7 @@ export function Footer() {
       <Logo className="text-8xl" />
       <Link to="/retailers" className={`${pill} bg-tomato text-cream`}>Get ACE in your store</Link>
       <p className="text-xs opacity-60">© {new Date().getFullYear()} ACE Food</p>
+      <p className="font-serif text-sm italic opacity-70">By Sergio Maalouf</p>
     </footer>
   );
 }
