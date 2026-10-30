@@ -40,13 +40,12 @@ export const features = [
   { n: "03", big: "DAILY", small: "Made for everyday meals", tone: "teal" as Tone },
 ];
 
-// Placeholder rows until the real ingredient list is supplied.
 export const inside = [
-  { n: "01", name: "Ingredient one", note: "To be added" },
-  { n: "02", name: "Ingredient two", note: "To be added" },
-  { n: "03", name: "Ingredient three", note: "To be added" },
-  { n: "04", name: "Ingredient four", note: "To be added" },
-  { n: "05", name: "Ingredient five", note: "To be added" },
+  { n: "01", name: "CHARACTER", note: "BOLD" },
+  { n: "02", name: "HEAT", note: "CRAFTED" },
+  { n: "03", name: "FLAVOUR", note: "DISTINCTIVE" },
+  { n: "04", name: "CRAFT", note: "EVERYDAY" },
+  { n: "05", name: "FINISH", note: "MEMORABLE" },
 ];
 
 export const toneClass: Record<Tone, string> = {
