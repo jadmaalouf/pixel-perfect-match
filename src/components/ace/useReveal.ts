@@ -7,8 +7,8 @@ export function useReveal<T extends HTMLElement>() {
     if (!el) return;
     const io = new IntersectionObserver(
       ([e]) => {
-        if (e.isIntersecting) {
-          el.dataset.visible = "true";
+        if (e?.isIntersecting) {
+          el.dataset["visible"] = "true";
           io.disconnect();
         }
       },
