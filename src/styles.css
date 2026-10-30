@@ -121,3 +121,7 @@
   .reveal { opacity: 1; transform: none; }
   html { scroll-behavior: auto; }
 }
+
+@keyframes ace-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@utility anim-marquee { animation: ace-marquee 45s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .anim-marquee { animation: none; } }
