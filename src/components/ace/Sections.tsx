@@ -145,7 +145,7 @@ export function Photo() {
   return (
     <section ref={ref} className="relative flex h-[90svh] items-center justify-center overflow-hidden bg-chili">
       <span className="absolute font-logo text-[55vw] leading-none text-tomato/40 md:text-[30vw]" style={{ transform: `translateX(${y * 60}px)` }}>ACE</span>
-      <img src={bottle} alt="" loading="lazy" className="absolute left-[8%] h-[45%] -rotate-12 drop-shadow-2xl" style={{ transform: `translateY(${y * 120}px) rotate(-12deg)` }} />
+      <img src={bottle} alt="" loading="lazy" className="absolute left-[8%] h-[45%] drop-shadow-2xl" style={{ transform: `translateY(${y * 120}px) rotate(-12deg)` }} />
       <img src={bottle} alt="ACE Sriracha Chili" loading="lazy" className="relative z-10 h-[70%] drop-shadow-2xl" style={{ transform: `translateY(${y * 40}px)` }} />
       <img src={bottle} alt="" loading="lazy" className="absolute right-[8%] h-[45%] drop-shadow-2xl" style={{ transform: `translateY(${y * -90}px) rotate(12deg)` }} />
     </section>
