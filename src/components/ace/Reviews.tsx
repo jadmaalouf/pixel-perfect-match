@@ -17,8 +17,8 @@ const tones = [
   { card: "bg-tomato text-cream", bar: "bg-cream text-burgundy" },
   { card: "bg-cream text-obsidian", bar: "bg-obsidian text-cream" },
   { card: "bg-obsidian text-cream", bar: "bg-cream text-obsidian" },
-];
-const tilts = [-4, 3, -2, 4, -3];
+] as const;
+const tilts = [-4, 3, -2, 4, -3] as const;
 
 const schema = z.object({
   name: z.string().trim().min(1, "Please add your name").max(40),
@@ -39,11 +39,12 @@ function Stars({ n, className = "" }: { n: number; className?: string }) {
 }
 
 function Card({ r, i }: { r: Review; i: number }) {
-  const t = tones[i % tones.length];
+  const t = tones[i % tones.length] ?? tones[0];
+  const tilt = tilts[i % tilts.length] ?? 0;
   return (
     <article
       className={`flex h-[420px] w-[270px] shrink-0 flex-col shadow-2xl ${t.card}`}
-      style={{ transform: `rotate(${tilts[i % tilts.length]}deg)` }}
+      style={{ transform: `rotate(${tilt}deg)` }}
     >
       <p className={`py-1.5 text-center font-condensed text-sm font-bold ${t.bar}`}>
         {r.tag[0]} <span className="font-serif font-normal italic">{r.tag[1]}</span>
@@ -117,8 +118,15 @@ function ReviewForm({ onClose, onSubmit }: { onClose: () => void; onSubmit: (r: 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const res = schema.safeParse({ name, city: city || undefined, text, stars });
-    if (!res.success) return setError(res.error.issues[0].message);
-    onSubmit({ ...res.data, tag: ["ORIGINAL", "sriracha"] });
+    if (!res.success) return setError(res.error.issues[0]?.message ?? "Please check your details");
+    const d = res.data;
+    onSubmit({
+      name: d.name,
+      ...(d.city ? { city: d.city } : {}),
+      text: d.text,
+      stars: d.stars,
+      tag: ["ORIGINAL", "sriracha"],
+    });
   };
 
   const field = "w-full rounded-lg border border-burgundy/30 bg-transparent px-3 py-2.5 text-obsidian outline-none focus:border-tomato";
